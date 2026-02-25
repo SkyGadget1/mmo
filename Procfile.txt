@@ -1,0 +1,1 @@
+worker: python mmo_bot.py

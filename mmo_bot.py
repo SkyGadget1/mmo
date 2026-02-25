@@ -8,7 +8,10 @@ import os
 # CONFIG
 # ==============================
 
-TOKEN = "TU_TOKEN_AQUI"
+TOKEN = os.getenv("DISCORD_TOKEN")
+
+if TOKEN is None:
+    raise ValueError("No se encontró el token. Configura DISCORD_TOKEN en las variables de entorno.")
 DATA_FILE = "players.json"
 K_FACTOR = 32
 
@@ -244,5 +247,6 @@ async def ranking(ctx):
     await ctx.send(mensaje)
 
 # ==============================
+
 
 bot.run(TOKEN)
